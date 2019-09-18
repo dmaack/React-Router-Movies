@@ -6,7 +6,7 @@ import MovieCard from './MovieCard';
 
 const Movie = (props) => {
   const [movie, setMovie] = useState({});
-  const { addToSavedList} = props;
+  const { addToSavedList } = props;
   useEffect(() => {
     const id = props.match.params.id;
     // change ^^^ that line and grab the id from the URL
@@ -33,11 +33,11 @@ const Movie = (props) => {
     return <div>Loading movie information...</div>;
   }
 
-  const { title, director, metascore, stars } = movie;
+  
   return (
     <div>
-    <MovieCard title={movie.title} director={movie.director} metascore={movie.metascore} stars={movie.star} />
-    <button onClick={() => addToSavedList({title: movie.title})}>Save</button>
+    <MovieCard title={movie.title} director={movie.director} metascore={movie.metascore} stars={movie.star} addToSavedList={addToSavedList}/>
+  
     </div>
   );
 }
