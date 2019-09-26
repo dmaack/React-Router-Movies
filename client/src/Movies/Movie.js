@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
 import MovieCard from './MovieCard';
 // import SavedList from './SavedList';
 
-const Movie = (props) => {
+const Movie = props => {
   const [movie, setMovie] = useState({});
-  const { addToSavedList } = props;
+  
   useEffect(() => {
     const id = props.match.params.id;
     // change ^^^ that line and grab the id from the URL
@@ -35,9 +34,9 @@ const Movie = (props) => {
 
   
   return (
-    <div>
-    <MovieCard title={movie.title} director={movie.director} metascore={movie.metascore} stars={movie.star} addToSavedList={addToSavedList}/>
-  
+    <div className='save-wrapper'>
+    <MovieCard movie={movie} saveMovie={saveMovie}/>
+    <div className="save-button" onClick={this.saveMovie}>Save</div>
     </div>
   );
 }

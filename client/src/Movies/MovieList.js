@@ -6,6 +6,7 @@ import MovieCard from './MovieCard';
 
 const MovieList = props => {
   const [movies, setMovies] = useState([]);
+
   useEffect(() => {
     const getMovies = () => {
       axios
@@ -24,19 +25,19 @@ const MovieList = props => {
   return (
     <div className="movie-list">
       {movies.map(movie => (
-        <MovieDetails key={movie.id} movie={movie} />
+        <MovieCard key={movie.id} movie={movie} />
       ))}
     </div>
   );
 }
 
-function MovieDetails({ movie }) {
-  const { title, director, metascore, stars } = movie;
-  return (
-    <Link to={`/movies/${movie.id}`}>
-      <MovieCard title={movie.title} director={movie.director} metascore={movie.metascore} stars={movie.stars} />
-    </Link>
-  );
-}
+// function MovieDetails({ movie }) {
+//   const { title, director, metascore, stars } = movie;
+//   return (
+//     <Link to={`/movies/${movie.id}`}>
+//       <MovieCard title={movie.title} director={movie.director} metascore={movie.metascore} stars={movie.stars} />
+//     </Link>
+//   );
+// }
 
 export default MovieList;
